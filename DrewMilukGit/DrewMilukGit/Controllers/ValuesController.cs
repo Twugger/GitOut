@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,10 +10,14 @@ namespace DrewMilukGit.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        // Drew Miluk
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Name");
+            dataTable.Rows.Add("Drew Miluk");
+
+            return Request.CreateResponse(HttpStatusCode.OK, dataTable);
         }
 
         // GET api/values/5
